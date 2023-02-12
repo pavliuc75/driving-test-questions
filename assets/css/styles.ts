@@ -7,7 +7,6 @@ const styles = StyleSheet.create({
     },
     header: {
         paddingVertical: 8,
-        paddingHorizontal: 16,
     }
 });
 

@@ -1,4 +1,3 @@
-import {StyleSheet} from 'react-native';
 import {DefaultTheme, NavigationContainer} from "@react-navigation/native";
 import {createNativeStackNavigator} from "@react-navigation/native-stack";
 import RandomModeScreen from "./components/screens/RandomModeScreen";
@@ -40,7 +39,6 @@ const App = () => {
 export default App;
 
 //todo: all screens navigation (styled headers for every screen)
-//todo: main menu screen
 //todo: about page
 //todo: make helper js file for questions
 //todo: category select page
