@@ -6,23 +6,26 @@ type Props = {
     text: string,
     isCorrect?: boolean,
     isWrong?: boolean,
-}
-
-const handleButtonPress = () => {
-    console.log('Pressed');
+    isSelected?: boolean,
+    onPress?: () => void,
+    disabled?: boolean,
 }
 
 const AnswerButton = (props: Props) => {
     return (<TouchableHighlight activeOpacity={0.5}
+                                disabled={props.disabled}
                                 underlayColor="#fff"
                                 style={styles.touchableHighlight}
-                                onPress={handleButtonPress}>
-        <LinearGradient start={{ x: 0.7, y: 0.0 }} end={{ x: 0.9, y: 0.0 }} colors={['white', '#f5f5f5']}>
+                                onPress={props.onPress}>
+        <LinearGradient start={{x: 0.7, y: 0.0}} end={{x: 0.9, y: 0.0}} colors={['white', '#f5f5f5']}>
             <View style={[styles.view]}>
                 <Text
-                    style={[styles.text, styles.orderNumberText, props.isCorrect ? styles.correctText : {}, props.isWrong ? styles.wrongText : {}]}>{props.orderNumber}. </Text>
+                    style={[styles.text, styles.orderNumberText, props.isCorrect ? styles.correctText : {}, props.isWrong ? styles.wrongText : {}, props.isSelected ? styles.selectedText :{}]}>{props.orderNumber}. </Text>
                 <Text
-                    style={[styles.text, styles.mainText, props.isCorrect ? styles.correctText : {}, props.isWrong ? styles.wrongText : {}]}>{props.text}</Text>
+                    style={[styles.text, styles.mainText, props.isCorrect ? styles.correctText : {}, props.isWrong ? styles.wrongText : {}, props.isSelected ? styles.selectedText :{}, {
+                        flex: 1,
+                        flexWrap: 'wrap',
+                    }]}>{props.text}</Text>
             </View>
         </LinearGradient>
 
@@ -34,6 +37,7 @@ export default AnswerButton;
 const styles = StyleSheet.create({
     touchableHighlight: {
         paddingVertical: 4,
+
     },
     view: {
         display: 'flex',
@@ -42,11 +46,12 @@ const styles = StyleSheet.create({
         paddingVertical: 5,
         marginRight: 1,
         backgroundColor: '#fff',
+
     },
     text: {
         fontWeight: '400',
         fontSize: 15,
-        lineHeight: 20
+        lineHeight: 20,
     },
     mainText: {
         textDecorationLine: 'underline',
@@ -62,4 +67,8 @@ const styles = StyleSheet.create({
         color: 'red',
         fontWeight: '600'
     },
+    selectedText: {
+        color: 'blue',
+        fontWeight: '600'
+    }
 });

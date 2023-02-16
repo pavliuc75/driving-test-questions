@@ -39,7 +39,6 @@ const App = () => {
 export default App;
 
 //todo: all screens navigation (styled headers for every screen)
-//todo: about page
 //todo: make helper js file for questions
 //todo: category select page
 //todo: category mode screen

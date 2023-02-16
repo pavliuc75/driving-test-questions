@@ -6,22 +6,10 @@ const styles = StyleSheet.create({
         paddingBottom: 12,
     },
     header: {
-        paddingVertical: 8,
-    }
-});
-
-const genericStyles = StyleSheet.create({
-    fontWeight600: {
-        fontWeight: "600"
-    },
-    fontSize15: {
-        fontSize: 15
-    },
-    lineHeight20: {
-        lineHeight: 20
+        paddingVertical: 8
     }
 });
 
 export {
-    styles, genericStyles
+    styles
 }

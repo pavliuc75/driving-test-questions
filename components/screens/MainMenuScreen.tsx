@@ -33,14 +33,14 @@ const MainMenuScreen = ({navigation}: Props) => {
 
                 </View>
             </TouchableHighlight>
-            <RegularButton isArrowForward onPress={() => {
-            }} text={t('randomMode')}></RegularButton>
+            <RegularButton isArrowForward onPress={() => navigation.push('RandomMode')}
+                           text={t('randomMode')}></RegularButton>
             <View style={{marginBottom: 24}}></View>
-            <RegularButton isArrowForward onPress={() => {
-            }} text={t('examMode')}></RegularButton>
+            <RegularButton isArrowForward onPress={() => navigation.push('ExamMode')}
+                           text={t('examMode')}></RegularButton>
             <View style={{marginBottom: 24}}></View>
-            <RegularButton isArrowForward onPress={() => {
-            }} text={t('afterCategory')}></RegularButton>
+            <RegularButton isArrowForward onPress={() => navigation.push('CategorySelect')}
+                           text={t('afterCategory')}></RegularButton>
         </SafeAreaView>
     )
 }

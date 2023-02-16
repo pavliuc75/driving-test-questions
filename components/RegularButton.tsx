@@ -14,7 +14,7 @@ const RegularButton = (props: Props) => {
                             onPress={props.onPress}>
             <View style={[styles.view]}>
                 {props.isArrowBack && <Ionicons name="ios-arrow-back" size={20} style={[styles.arrowBack]}/>}
-                <Text style={[styles.text]}>{props.text}</Text>
+                <Text style={[styles.text, { flexShrink:1, flexGrow:1 }]}>{props.text}</Text>
                 {props.isArrowForward && <Ionicons name="ios-arrow-forward" size={20} style={[styles.arrowForward]}/>}
             </View>
         </TouchableHighlight>
