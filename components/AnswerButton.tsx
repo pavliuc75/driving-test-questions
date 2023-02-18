@@ -17,15 +17,14 @@ const AnswerButton = (props: Props) => {
                                 underlayColor="#fff"
                                 style={localsStyles.touchableHighlight}
                                 onPress={props.onPress}>
-        <LinearGradient start={{x: 0.7, y: 0.0}} end={{x: 0.9, y: 0.0}} colors={['white', '#f5f5f5']}>
+        <LinearGradient start={{x: 0.7, y: 0.0}}
+                        end={{x: 0.9, y: 0.0}}
+                        colors={['white', '#f5f5f5']}>
             <View style={[localsStyles.view]}>
                 <Text
                     style={[localsStyles.text, localsStyles.orderNumberText, props.isCorrect ? localsStyles.correctText : {}, props.isWrong ? localsStyles.wrongText : {}, props.isSelected ? localsStyles.selectedText :{}]}>{props.orderNumber}. </Text>
                 <Text
-                    style={[localsStyles.text, localsStyles.mainText, props.isCorrect ? localsStyles.correctText : {}, props.isWrong ? localsStyles.wrongText : {}, props.isSelected ? localsStyles.selectedText :{}, {
-                        flex: 1,
-                        flexWrap: 'wrap',
-                    }]}>{props.text}</Text>
+                    style={[localsStyles.text, localsStyles.mainText, props.isCorrect ? localsStyles.correctText : {}, props.isWrong ? localsStyles.wrongText : {}, props.isSelected ? localsStyles.selectedText :{}, localsStyles.fitText]}>{props.text}</Text>
             </View>
         </LinearGradient>
 
@@ -55,6 +54,10 @@ const localsStyles = StyleSheet.create({
     },
     mainText: {
         textDecorationLine: 'underline',
+    },
+    fitText: {
+        flex: 1,
+        flexWrap: 'wrap'
     },
     orderNumberText: {
         minWidth: 16,

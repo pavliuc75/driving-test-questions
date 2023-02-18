@@ -1,4 +1,4 @@
-import {StyleSheet, Text, TouchableHighlight, View} from "react-native";
+import {StyleSheet, TouchableHighlight, View} from "react-native";
 import {useState} from "react";
 import questionsHelper, {Question} from "../../assets/questionsHelper";
 import {styles} from "../../assets/css/styles";
@@ -11,7 +11,9 @@ type Props = {
 }
 const RandomModeScreen = ({navigation}: Props) => {
     const [currentQuestionSecondaryId, setCurrentQuestionId] = useState<number>(1);
-    const [randomQuestions, setRandomQuestions] = useState<Array<Question & { categoryIdLiteral: string; secondaryId: number }>>(questionsHelper.getRandomQuestions);
+    const [randomQuestions, setRandomQuestions] =
+        useState<Array<Question & { categoryIdLiteral: string; secondaryId: number; isExplanationShown?: boolean }>>
+        (questionsHelper.getRandomQuestions);
 
     function handleUserPickedAnAnswer(chosenAnswerId: number) {
         setRandomQuestions(randomQuestions.map((question) => {
@@ -65,8 +67,11 @@ const RandomModeScreen = ({navigation}: Props) => {
     return (
         <SafeAreaView style={[styles.container, localStyles.container]}>
             <View style={[styles.header, localStyles.header]}>
-                <TouchableHighlight activeOpacity={0.5} underlayColor="#fff" onPress={navigation.goBack}>
-                    <Ionicons name="ios-chevron-back-outline" size={24}/>
+                <TouchableHighlight activeOpacity={0.5}
+                                    underlayColor="#fff"
+                                    onPress={navigation.goBack}>
+                    <Ionicons name="ios-chevron-back-outline"
+                              size={24}/>
                 </TouchableHighlight>
             </View>
             <QuestionSection question={randomQuestions[currentQuestionSecondaryId - 1]}

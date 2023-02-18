@@ -3,7 +3,7 @@ import {SafeAreaView} from "react-native-safe-area-context";
 import {styles} from "../../assets/css/styles";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import {useState} from "react";
-import {QuestionSet} from "../../assets/questionsHelper";
+import {Question, QuestionSet} from "../../assets/questionsHelper";
 import QuestionSection from "../QuestionSection";
 
 type Props = {
@@ -18,7 +18,7 @@ const CategoryModeScreen = ({route, navigation}: Props) => {
     function handleUserPickedAnAnswer(chosenAnswerId: number) {
         setQuestionSet({
             ...questionSet,
-            questions: questionSet.questions.map((question) => {
+            questions: questionSet.questions.map((question: Question & { isExplanationShown?: boolean }) => {
                 if (question.id === currentQuestionId) {
                     return {
                         ...question,
