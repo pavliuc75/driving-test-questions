@@ -85,7 +85,7 @@ const CategoryModeScreen = ({route, navigation}: Props) => {
             </View>
             <QuestionSection question={questionSet.questions[currentQuestionId - 1]}
                              categoryIdLiteral={questionSet.category.idLiteral}
-                             isExamMode={false}
+                             isExplanationButtonEnabled={true}
                              isNextButtonHidden={currentQuestionId === route.params.questionSet.questions.length}
                              isBackButtonHidden={currentQuestionId === 1}
                              onUserPickedAnAnswer={handleUserPickedAnAnswer}

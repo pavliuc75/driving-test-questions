@@ -15,14 +15,14 @@ const AnswerButton = (props: Props) => {
     return (<TouchableHighlight activeOpacity={0.5}
                                 disabled={props.disabled}
                                 underlayColor="#fff"
-                                style={styles.touchableHighlight}
+                                style={localsStyles.touchableHighlight}
                                 onPress={props.onPress}>
         <LinearGradient start={{x: 0.7, y: 0.0}} end={{x: 0.9, y: 0.0}} colors={['white', '#f5f5f5']}>
-            <View style={[styles.view]}>
+            <View style={[localsStyles.view]}>
                 <Text
-                    style={[styles.text, styles.orderNumberText, props.isCorrect ? styles.correctText : {}, props.isWrong ? styles.wrongText : {}, props.isSelected ? styles.selectedText :{}]}>{props.orderNumber}. </Text>
+                    style={[localsStyles.text, localsStyles.orderNumberText, props.isCorrect ? localsStyles.correctText : {}, props.isWrong ? localsStyles.wrongText : {}, props.isSelected ? localsStyles.selectedText :{}]}>{props.orderNumber}. </Text>
                 <Text
-                    style={[styles.text, styles.mainText, props.isCorrect ? styles.correctText : {}, props.isWrong ? styles.wrongText : {}, props.isSelected ? styles.selectedText :{}, {
+                    style={[localsStyles.text, localsStyles.mainText, props.isCorrect ? localsStyles.correctText : {}, props.isWrong ? localsStyles.wrongText : {}, props.isSelected ? localsStyles.selectedText :{}, {
                         flex: 1,
                         flexWrap: 'wrap',
                     }]}>{props.text}</Text>
@@ -34,7 +34,7 @@ const AnswerButton = (props: Props) => {
 
 export default AnswerButton;
 
-const styles = StyleSheet.create({
+const localsStyles = StyleSheet.create({
     touchableHighlight: {
         paddingVertical: 4,
 
@@ -68,7 +68,6 @@ const styles = StyleSheet.create({
         fontWeight: '600'
     },
     selectedText: {
-        color: 'blue',
         fontWeight: '600'
     }
 });

@@ -27,7 +27,7 @@ const questionsHelper = {
     getQuestionSets: function (): Array<QuestionSet> {
         return questionSets;
     },
-    getRandomQuestions: function (): Array<Question & { categoryIdLiteral: string, secondaryId: number }> {
+    getRandomQuestions: function (limit = 999): Array<Question & { categoryIdLiteral: string, secondaryId: number }> {
         let questions = questionSets.flatMap(qs =>
             qs.questions.map(q => ({...q, categoryIdLiteral: qs.category.idLiteral}))
         );
@@ -35,9 +35,11 @@ const questionsHelper = {
         questions.sort(() => Math.random() - 0.5);
 
         let currentId = 1;
-        return questions.map(q => {
+        let questionsWithSecondaryId = questions.map(q => {
             return {...q, secondaryId: currentId++}
         });
+
+        return questionsWithSecondaryId.slice(0, limit);
     },
     images: {
         "1.1": {

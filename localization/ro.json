@@ -9,5 +9,13 @@
   "thankYouForUsing": "Vă mulțumesc că folosiți aplicația!",
   "author": "Autorul aplicației: Nicolai Pavliuc",
   "iFoundAMistake": "Am găsit o greșeală",
-  "next": "Următoarea"
+  "next": "Următoarea",
+  "youFailed": "Nu aţi trecut",
+  "youPassed": "Aţi trecut",
+  "restart": "Începe din nou",
+  "viewYourAnswers": "Vezi răspunsurile",
+  "backToMenu": "Înapoi la meniu",
+  "timeIsUp": "Timpul a expirat",
+  "tooManyWrongAnswers": "Prea multe răspunsuri greșite",
+  "youGaveEnoughCorrectAnswers": "Ați dat destule răspunsuri corecte"
 }

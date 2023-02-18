@@ -9,5 +9,13 @@
     "thankYouForUsing": "Спасибо что используете приложение!",
     "author": "Автор приложения: Nicolai Pavliuc",
     "iFoundAMistake": "Я нашел ошибку",
-    "next": "Далее"
+    "next": "Далее",
+    "youFailed": "Вы не сдали",
+    "youPassed": "Вы сдали",
+    "restart": "Начать заново",
+    "viewYourAnswers": "Посмотреть ответы",
+    "backToMenu": "Вернуться в меню",
+    "timeIsUp": "Время вышло",
+    "tooManyWrongAnswers": "Слишком много неправильных ответов",
+    "youGaveEnoughCorrectAnswers": "Вы дали достаточно правильных ответов"
 }

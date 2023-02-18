@@ -8,11 +8,13 @@ import Animated, {LightSpeedInLeft} from "react-native-reanimated";
 
 
 type Props = {
-    question: Question,
+    question: Question & { pickedAnswerId?: number, isExplanationShown?: boolean, isAnimateExplanationShown?: boolean },
     categoryIdLiteral: string,
     isNextButtonHidden: boolean,
     isBackButtonHidden: boolean,
-    isExamMode: boolean,
+    isExplanationButtonEnabled: boolean,
+    isAnswerButtonsDisabled?: boolean,
+    isAnswersForUnansweredQuestionsShown?: boolean,
     onUserPickedAnAnswer: (chosenAnswerId: number) => void,
     onUserToggledExplanation: () => void,
     onUserPressedNextQuestion: () => void,
@@ -28,10 +30,10 @@ const QuestionSection = (props: Props) => {
                   showsVerticalScrollIndicator={false}
                   contentContainerStyle={{justifyContent: 'flex-end', flexDirection: 'column-reverse', flexGrow: 1}}
                   renderItem={({item}) => <AnswerButton orderNumber={item.id}
-                                                        disabled={!props.isExamMode && props.question.pickedAnswerId != null}
-                                                        isCorrect={!props.isExamMode && item.id === props.question.correctAnswer.id && props.question.pickedAnswerId != null}
-                                                        isWrong={!props.isExamMode && item.id === props.question.pickedAnswerId && item.id !== props.question.correctAnswer.id}
-                                                        isSelected={props.isExamMode && item.id === props.question.pickedAnswerId}
+                                                        disabled={props.question.pickedAnswerId != null || props.isAnswerButtonsDisabled}
+                                                        isCorrect={item.id === props.question.correctAnswer.id && props.question.pickedAnswerId != null}
+                                                        isWrong={item.id === props.question.pickedAnswerId && item.id !== props.question.correctAnswer.id}
+                                                        isSelected={props.isAnswersForUnansweredQuestionsShown && item.id === props.question.correctAnswer.id}
                                                         text={item.answer[i18n.language]}
                                                         onPress={() => props.onUserPickedAnAnswer(item.id)}/>}
                   ListHeaderComponent={() => {
@@ -47,9 +49,9 @@ const QuestionSection = (props: Props) => {
                       return (
                           <>
                               {props.question.isExplanationShown ?
-                                  <Animated.View entering={props.question.isAnimateExplanationShown ? LightSpeedInLeft : null}
-
-                                                 style={[localStyles.correctAnswer]}>
+                                  <Animated.View
+                                      entering={props.question.isAnimateExplanationShown ? LightSpeedInLeft : null}
+                                      style={[localStyles.correctAnswer]}>
                                       <Text
                                           style={[localStyles.text]}>{props.question.correctAnswer.explanation[i18n.language]}</Text>
                                   </Animated.View> :
@@ -60,20 +62,24 @@ const QuestionSection = (props: Props) => {
                   }}
         />
         <View style={[localStyles.footer]}>
-            {!props.isExamMode ? <TouchableHighlight onPress={props.onUserToggledExplanation}
-                                                     style={[localStyles.touchableHighlight]}
-                                                     activeOpacity={0.5} underlayColor="#fff">
-                {props.question.isExplanationShown ? <Ionicons name="ios-chevron-up-outline" size={20}/> :
+            {props.isExplanationButtonEnabled ? <TouchableHighlight
+                onPress={props.onUserToggledExplanation}
+                style={[localStyles.touchableHighlight]}
+                activeOpacity={0.5} underlayColor="#fff">
+                {props.question.isExplanationShown ? <Ionicons name="ios-chevron-up-outline"
+                                                               size={20}/> :
                     <Text style={[localStyles.text]}>?</Text>}
             </TouchableHighlight> : <View></View>}
             <View style={[localStyles.navigationButtonsWrapper]}>
                 {!props.isBackButtonHidden && <TouchableHighlight style={[localStyles.backButton]}
-                                                            onPress={() => props.onUserPressedPreviousQuestion()}
-                                                            activeOpacity={0.5} underlayColor="#fff">
-                    <Ionicons name="ios-arrow-back" size={20}/>
+                                                                  onPress={() => props.onUserPressedPreviousQuestion()}
+                                                                  activeOpacity={0.5} underlayColor="#fff">
+                    <Ionicons name="ios-arrow-back"
+                              size={20}/>
                 </TouchableHighlight>}
-                {!props.isNextButtonHidden && <RegularButton isArrowForward onPress={() => props.onUserPressedNextQuestion()}
-                                                       text={t('next')}></RegularButton>}
+                {!props.isNextButtonHidden &&
+                    <RegularButton isArrowForward onPress={() => props.onUserPressedNextQuestion()}
+                                   text={t('next')}></RegularButton>}
             </View>
         </View>
     </View>);

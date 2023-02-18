@@ -71,7 +71,7 @@ const RandomModeScreen = ({navigation}: Props) => {
             </View>
             <QuestionSection question={randomQuestions[currentQuestionSecondaryId - 1]}
                              categoryIdLiteral={randomQuestions[currentQuestionSecondaryId - 1]["categoryIdLiteral"]}
-                             isExamMode={false}
+                             isExplanationButtonEnabled={true}
                              isBackButtonHidden={currentQuestionSecondaryId === 1}
                              isNextButtonHidden={currentQuestionSecondaryId === randomQuestions.length}
                              onUserPickedAnAnswer={handleUserPickedAnAnswer}
