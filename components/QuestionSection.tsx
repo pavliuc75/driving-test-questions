@@ -10,7 +10,8 @@ import Animated, {LightSpeedInLeft} from "react-native-reanimated";
 type Props = {
     question: Question,
     categoryIdLiteral: string,
-    totalNumberOfQuestions: number,
+    isNextButtonHidden: boolean,
+    isBackButtonHidden: boolean,
     isExamMode: boolean,
     onUserPickedAnAnswer: (chosenAnswerId: number) => void,
     onUserToggledExplanation: () => void,
@@ -20,13 +21,6 @@ type Props = {
 
 const QuestionSection = (props: Props) => {
     const {t, i18n} = useTranslation();
-
-    const isBackButtonHidden = props.question.id === 1;
-    const isNextButtonHidden = props.question.id === props.totalNumberOfQuestions;
-
-    function handleUserPickedAnAnswer(chosenAnswerId: number) {
-        props.onUserPickedAnAnswer(chosenAnswerId);
-    }
 
     return (<View style={{flex: 1}}>
         <FlatList style={[localStyles.flatList]} data={props.question.answers}
@@ -39,7 +33,7 @@ const QuestionSection = (props: Props) => {
                                                         isWrong={!props.isExamMode && item.id === props.question.pickedAnswerId && item.id !== props.question.correctAnswer.id}
                                                         isSelected={props.isExamMode && item.id === props.question.pickedAnswerId}
                                                         text={item.answer[i18n.language]}
-                                                        onPress={() => handleUserPickedAnAnswer(item.id)}/>}
+                                                        onPress={() => props.onUserPickedAnAnswer(item.id)}/>}
                   ListHeaderComponent={() => {
                       return (
                           <>
@@ -53,7 +47,7 @@ const QuestionSection = (props: Props) => {
                       return (
                           <>
                               {props.question.isExplanationShown ?
-                                  <Animated.View onFinished={() => kek()} entering={props.question.isAnimateExplanationShown ? LightSpeedInLeft : null}
+                                  <Animated.View entering={props.question.isAnimateExplanationShown ? LightSpeedInLeft : null}
 
                                                  style={[localStyles.correctAnswer]}>
                                       <Text
@@ -73,12 +67,12 @@ const QuestionSection = (props: Props) => {
                     <Text style={[localStyles.text]}>?</Text>}
             </TouchableHighlight> : <View></View>}
             <View style={[localStyles.navigationButtonsWrapper]}>
-                {!isBackButtonHidden && <TouchableHighlight style={[localStyles.backButton]}
+                {!props.isBackButtonHidden && <TouchableHighlight style={[localStyles.backButton]}
                                                             onPress={() => props.onUserPressedPreviousQuestion()}
                                                             activeOpacity={0.5} underlayColor="#fff">
                     <Ionicons name="ios-arrow-back" size={20}/>
                 </TouchableHighlight>}
-                {!isNextButtonHidden && <RegularButton isArrowForward onPress={() => props.onUserPressedNextQuestion()}
+                {!props.isNextButtonHidden && <RegularButton isArrowForward onPress={() => props.onUserPressedNextQuestion()}
                                                        text={t('next')}></RegularButton>}
             </View>
         </View>

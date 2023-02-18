@@ -63,7 +63,9 @@ const localStyles = StyleSheet.create({
     languageSwitcherButton: {
         alignSelf: 'flex-start',
         flexDirection: 'row',
-        marginBottom: 24,
+        marginBottom: 16,
+        paddingVertical: 8,
+        paddingRight: 16,
     },
     currentLanguageButtonText: {
         textDecorationLine: 'underline',
