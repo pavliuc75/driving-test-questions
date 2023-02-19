@@ -9,6 +9,11 @@ import {SafeAreaProvider} from 'react-native-safe-area-context';
 import './localization/i18n';
 import AboutScreen from "./components/screens/AboutScreen";
 import {StatusBar} from "expo-status-bar";
+import {useTranslation} from "react-i18next";
+import {useEffect} from "react";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import {getLocales} from 'expo-localization';
+
 
 const CustomTheme = {
     ...DefaultTheme,
@@ -21,6 +26,22 @@ const CustomTheme = {
 const Stack = createNativeStackNavigator();
 
 const App = () => {
+    const {i18n} = useTranslation();
+
+    useEffect(() => {
+        AsyncStorage.getItem('lang').then((lang) => {
+            if (lang === 'ro') {
+                i18n.changeLanguage('ro')
+            } else if (lang === 'ru') {
+                i18n.changeLanguage('ru')
+            } else {
+                if (getLocales()[0].languageCode === 'ru') {
+                    i18n.changeLanguage('ru')
+                }
+            }
+        });
+
+    }, []);
     return (
         <SafeAreaProvider>
             <StatusBar style="dark" />

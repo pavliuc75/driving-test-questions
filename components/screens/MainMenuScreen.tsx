@@ -3,6 +3,7 @@ import {SafeAreaView} from "react-native-safe-area-context";
 import {styles} from "../../assets/css/styles";
 import RegularButton from "../RegularButton";
 import {useTranslation} from 'react-i18next'
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 type Props = {
     navigation: any
@@ -12,7 +13,13 @@ const MainMenuScreen = ({navigation}: Props) => {
     const {t, i18n} = useTranslation()
 
     function switchLocale() {
-        i18n.language === 'ro' ? i18n.changeLanguage('ru') : i18n.changeLanguage('ro')
+        if (i18n.language === 'ro') {
+            i18n.changeLanguage('ru');
+            AsyncStorage.setItem('lang', 'ru')
+        } else {
+            i18n.changeLanguage('ro');
+            AsyncStorage.setItem('lang', 'ro')
+        }
     }
 
     return (
