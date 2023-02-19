@@ -8,6 +8,7 @@ import CategorySelectScreen from "./components/screens/CategorySelectScreen";
 import {SafeAreaProvider} from 'react-native-safe-area-context';
 import './localization/i18n';
 import AboutScreen from "./components/screens/AboutScreen";
+import {StatusBar} from "expo-status-bar";
 
 const CustomTheme = {
     ...DefaultTheme,
@@ -22,6 +23,7 @@ const Stack = createNativeStackNavigator();
 const App = () => {
     return (
         <SafeAreaProvider>
+            <StatusBar style="dark" />
             <NavigationContainer theme={CustomTheme}>
                 <Stack.Navigator initialRouteName="MainMenu" screenOptions={{headerShown: false}}>
                     <Stack.Screen name="MainMenu" component={MainMenuScreen}/>

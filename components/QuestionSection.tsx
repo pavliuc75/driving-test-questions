@@ -65,7 +65,8 @@ const QuestionSection = (props: Props) => {
             {props.isExplanationButtonEnabled ? <TouchableHighlight
                 onPress={props.onUserToggledExplanation}
                 style={[localStyles.touchableHighlight]}
-                activeOpacity={0.5} underlayColor="#fff">
+                activeOpacity={0.5}
+                underlayColor="#fff">
                 {props.question.isExplanationShown ? <Ionicons name="ios-chevron-up-outline"
                                                                size={20}/> :
                     <Text style={[localStyles.text]}>?</Text>}
@@ -73,12 +74,14 @@ const QuestionSection = (props: Props) => {
             <View style={[localStyles.navigationButtonsWrapper]}>
                 {!props.isBackButtonHidden && <TouchableHighlight style={[localStyles.backButton]}
                                                                   onPress={() => props.onUserPressedPreviousQuestion()}
-                                                                  activeOpacity={0.5} underlayColor="#fff">
+                                                                  activeOpacity={0.5}
+                                                                  underlayColor="#fff">
                     <Ionicons name="ios-arrow-back"
                               size={20}/>
                 </TouchableHighlight>}
                 {!props.isNextButtonHidden &&
-                    <RegularButton isArrowForward onPress={() => props.onUserPressedNextQuestion()}
+                    <RegularButton isArrowForward
+                                   onPress={() => props.onUserPressedNextQuestion()}
                                    text={t('next')}></RegularButton>}
             </View>
         </View>
