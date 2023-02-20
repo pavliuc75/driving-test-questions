@@ -1,8 +1,9 @@
 {
   "expo": {
-    "name": "chestionare_md",
-    "slug": "chestionare_md",
-    "version": "1.0.0",
+    "name": "Examen Auto",
+    "description": "Examen Auto - Moldova (Экзамен ПДД - Молдова)",
+    "slug": "driving-test-questions",
+    "version": "1.0.1",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
@@ -18,7 +19,15 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": false
+      "supportsTablet": false,
+      "bundleIdentifier": "com.pavliuc75.drivingtestquestions",
+      "infoPlist": {
+        "CFBundleAllowMixedLocalizations": true
+      }
+    },
+    "locales": {
+      "ru": "./localization/ru.json",
+      "ro": "./localization/ro.json"
     },
     "android": {
       "adaptiveIcon": {
@@ -28,6 +37,11 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "0f5a91dc-ac76-4706-8703-9db98d147081"
+      }
     }
   }
 }

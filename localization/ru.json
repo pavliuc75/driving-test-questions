@@ -1,4 +1,5 @@
 {
+    "CFBundleDisplayName": "Экзамен ПДД",
     "examMode": "Режим экзамена",
     "randomMode": "Случайный режим",
     "afterCategory": "По категории",
