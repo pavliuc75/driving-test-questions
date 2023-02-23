@@ -3,9 +3,9 @@
 
 ### Simple app that can be used to simulate and prepare for theoretical part of the Moldovan driving exam.
 
-- The app is made using React Native and Typescript. There is also a version without Typescript. 
+- The app is made using React Native and TypeScript. There is also a version [without TypeScript]([https://www.example.com](https://github.com/pavliuc75/driving-test-questions--no-ts-)). It was build and deployed using Expo.
 - The application is available on App Store. It works best on iPhone.
-- Supports Romanian and Russian languages.
+- It supports Romanian and Russian languages.
 
 
 -images
