@@ -1,3 +1,4 @@
+![alt text](https://examenautomoldova.files.wordpress.com/2023/02/icon.png?resize=100,100)
 # Examen Auto - Moldova
 
 
