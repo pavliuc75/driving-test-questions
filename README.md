@@ -8,6 +8,5 @@
 - It supports Romanian and Russian languages. 
 <br/><br/>
 ![](https://examenautomoldova.files.wordpress.com/2023/02/ezgif-5-718129d229.gif?resize=130,280)&nbsp;&nbsp;&nbsp;&nbsp;![](https://examenautomoldova.files.wordpress.com/2023/02/simulator-screen-shot-iphone-14-pro-max-2023-02-21-at-20.51.19.png?resize=129,280)&nbsp;&nbsp;![](https://examenautomoldova.files.wordpress.com/2023/02/simulator-screen-shot-iphone-14-pro-max-2023-02-21-at-20.50.25.png?resize=129,280)&nbsp;&nbsp;![](https://examenautomoldova.files.wordpress.com/2023/02/simulator-screen-shot-iphone-14-pro-max-2023-02-21-at-20.50.32.png?resize=129,280)&nbsp;&nbsp;![](https://examenautomoldova.files.wordpress.com/2023/02/simulator-screen-shot-iphone-14-pro-max-2023-02-21-at-20.51.04.png?resize=129,280)           
-
--link to website
-
+<br/><br/>
+<sub><sup>*[Link to website](https://examenautomoldova.wordpress.com/)*</sup></sub>
